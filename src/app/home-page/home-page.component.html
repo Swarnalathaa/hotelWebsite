@@ -1,0 +1,110 @@
+<div class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="" class="logo">
+          <i class="fa fa-building"></i> FindHotel.com
+        </a>
+        <div class="hamburger-menu">
+          <i class="fa fa-bars" *ngIf="hideMenu" (click)="toggleMenu()"></i>
+          <i class="fa fa-times" *ngIf="!hideMenu" (click)="toggleMenu()"></i>
+        </div>
+        <ul class="nav-list" *ngIf="!hideMenu">
+          <li class="nav-item">
+            <a href="" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">News</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>
+<div>
+  <div class="hero">
+    <div class="container">
+      <div class="main-heading">
+        <div class="title">Explore</div>
+        <h2 class="subtitle">Best Hotels</h2>
+      </div>
+      <a href="javascript:void(0)" class="btn btn-gradient" (click)="scrollToElement(hotelList)">expore Now
+      </a>
+    </div>
+  </div>
+  <section class="booking">
+    <div class="container">
+      <form action="" class="book-form" #hotelList>
+        <div class="input-group">
+          <label for="destination" class="input-label">Destination</label>
+          <select class="options" id="destination" [(ngModel)]="destination" name="dest">
+            <option value="FRA">France</option>
+            <option value="SPA">Spain</option>
+            <option value="ITA">Italy</option>
+            <option value="GRE">Greece</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="checkin" class="input-label">CheckIn</label>
+          <input type="date" class="input" id="checkin" [(ngModel)]="checkIn" name="cin">
+        </div>
+        <div class="input-group">
+          <label for="checkout" class="input-label">CheckOut</label>
+          <input type="date" class="input" id="checkout" [(ngModel)]="checkOut" name="cout">
+        </div>
+        <button type="submit" class="btn form-btn btn-purple" (click)="searchHotel()">Search
+        </button>
+        <button class="btn form-btn btn-purple" (click)="clearSearch()">Clear
+        </button>
+      </form>
+    </div>
+  </section>
+  <section class="hotels">
+    <div class="container">
+      <h5 class="section-head">
+        <span class="heading">Explore</span>
+        <span class="sub-heading">Our beautiful hotels</span>
+      </h5>
+      <div class="grid" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+        (scrolled)="scrolledDown()">
+        <div class="grid-item featured-hotels" *ngFor="let hotel of hotels">
+          <img [src]="hotel.images.length ? hotel.images[0].url : ''" alt="" class="hotel-image">
+          <h5 class="hotel-name">{{hotel.name}}</h5>
+          <span class="hotel-city">{{hotel.address?.city}}</span>
+          <a href="javascript:void(0)" class="btn btn-gradient"> Book Now!
+          </a>
+        </div>
+      </div>
+      <div class="grid-nolist" *ngIf="!hotels.length">
+        No Hotels Found.
+      </div>
+    </div>
+  </section>
+</div>
+<div class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-content-brand">
+        <a href="" class="logo">
+          <i class="fa fa-building"></i> FindHotel.com
+        </a>
+        <div class="description">
+          Find and Explore best hotels
+        </div>
+      </div>
+      <div class="social-media-wrap">
+        <h4 class="footer-heading">Follow Us</h4>
+        <div class="social-media">
+          <a href="" class="sm-link"><i class="fa fa-twitter"></i></a>
+          <a href="" class="sm-link"><i class="fa fa-facebook-square"></i></a>
+          <a href="" class="sm-link"><i class="fa fa-instagram"></i></a>
+          <a href="" class="sm-link"><i class="fa fa-tripadvisor"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

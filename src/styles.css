@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~ngx-toastr/toastr';
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --dark-color: #2d2c2c;
+    --purple-solid: #350a4f;
+    --purple-transparent: rgba(53, 10, 79, .7);
+    --purple-transparent-alt: rgba(53, 10, 79, .5);
+    --purple-light: #ff7e5f;
+    --yellow-solid: #feb47b;
+    --gradient-color: linear-gradient(to right, var(--yellow-solid) , var(--purple-light));
+    --gradient-color-alt: linear-gradient(to right,var(--purple-light), var(--yellow-solid));
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+    color:black;
+}
