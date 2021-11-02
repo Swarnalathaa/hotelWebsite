@@ -126,7 +126,7 @@ section {
     background-image: var(--gradient-color);
 }
 .book-form {
-    display: flex;
+    display: block;
     justify-content: space-between;
 }
 .book-form .input-group {
@@ -235,6 +235,9 @@ section {
 @media screen and (min-width: 1000px) {
     section:not(.booking) {
         padding: 10rem 0;
+    }
+    .book-form {
+        display: flex;
     }
 }
 .footer {
